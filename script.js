@@ -80,6 +80,7 @@ function addhtml(data) {
     let div = document.createElement('div')
     section.appendChild(div)
     div.id=data.id
+    div.classList.add('div')
     let img = document.createElement('img')
     div.appendChild(img)
     img.src = data.image
@@ -91,12 +92,14 @@ function addhtml(data) {
     let p2 = document.createElement('p')
     div.appendChild(p)
     div.appendChild(p2)
-    p.innerText = data.type
-    p2.innerText = data.abilities
+    p.innerText = "Type: "+data.type
+    p2.innerText = "Abilities: "+data.abilities
 
-
+let div2 =document.createElement('div')
+div.appendChild(div2)
+div2.classList.add('buttons')
     let button = document.createElement('button')
-    div.appendChild(button)
+    div2.appendChild(button)
     button.innerText = "random"
 
     button.addEventListener('click', () => {
@@ -117,7 +120,7 @@ function addhtml(data) {
     })
 
     let delette=document.createElement('button')
-    div.appendChild(delette)
+    div2.appendChild(delette)
     delette.innerText="delete"
     delette.addEventListener('click',()=>{
         div.remove()
