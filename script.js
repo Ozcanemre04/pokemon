@@ -11,8 +11,7 @@ plus.addEventListener('click',()=>{
     
 })
 minus.addEventListener('click',()=>{
-    input.value--
-    
+   input.value--
     
 })
 
@@ -158,8 +157,9 @@ document.addEventListener('keyup', (e) => {
 
     if (e.key === "Enter") {
         let vl = input.value
-        if (vl >= 898 || vl<0) {
+        if (vl >= 898 || vl<1) {
             alert('limit')
+            input.value=''
         } else if (input.value === "") {
             alert('write a number')
         } else {
