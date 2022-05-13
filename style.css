@@ -45,7 +45,7 @@ p{
     margin: 0;
     
 }
-button{
+.delete,.random{
     width: 100%;
     border: none;
     background-color: green;
@@ -58,14 +58,14 @@ button{
     transition: 0.5 all ease;
     box-shadow: 0 0 5px green;
 }
-button:hover{
+.delete:hover ,.random:hover{
     background-color: white;
     color: green;
     cursor: pointer;
     text-shadow: 0 0 5px green;
 
 }
-button:first-of-type{
+.random{
     margin-bottom: 10px;
 }
 
@@ -84,15 +84,43 @@ label{
     justify-content: center;
     flex-direction: column;
 }
-input{
-    width: 20%;
+.all{
     align-self: center;
+    display: flex;
+    align-items: center;
+    width: 20%;
     margin-top: 10px;
+    justify-content: space-between;
+    border: 1px solid grey;
+
+    
+}
+input{
+    
+    width: 100%;
+    align-self: center;
     background-color: transparent;
-    border: 1px solid gray;
+    border: none;
     border-radius: 10px;
     outline: none;
     font-weight: bold;
     font-size: 20px;
+    padding: 5px;
+    text-align: center;
 }
+input[type=number]::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+  
+  }
+  .minus , .plus{
+      border:none;
+      align-self: bottom;
+      background-color: transparent;
+      margin: 0;
+      font-size: 30px;
+      font-weight: bold;
+      
+  }
 
+
+  

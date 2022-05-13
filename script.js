@@ -2,7 +2,19 @@ let section = document.querySelector('section')
 let input = document.querySelector('input')
 let button = document.querySelector('button')
 
+let minus = document.querySelector('.minus')
 
+let plus = document.querySelector('.plus')
+plus.addEventListener('click',()=>{
+    input.value++
+    
+    
+})
+minus.addEventListener('click',()=>{
+    input.value--
+    
+    
+})
 
 const startconf=()=>{
     let pokemons=JSON.parse(localStorage.getItem('pokemon'))
@@ -98,8 +110,10 @@ function addhtml(data) {
 let div2 =document.createElement('div')
 div.appendChild(div2)
 div2.classList.add('buttons')
+
     let button = document.createElement('button')
     div2.appendChild(button)
+    button.classList.add('random')
     button.innerText = "random"
 
     button.addEventListener('click', () => {
@@ -122,6 +136,7 @@ div2.classList.add('buttons')
     let delette=document.createElement('button')
     div2.appendChild(delette)
     delette.innerText="delete"
+    delette.classList.add("delete")
     delette.addEventListener('click',()=>{
         div.remove()
         let pokemons=JSON.parse(localStorage.getItem('pokemon'))
