@@ -1,7 +1,8 @@
 let section = document.querySelector('section')
 let input = document.querySelector('input')
 let button = document.querySelector('button')
-
+let inputtext= document.querySelector('.input-text')
+let search= document.querySelector('.search')
 let minus = document.querySelector('.minus')
 
 let plus = document.querySelector('.plus')
@@ -30,6 +31,7 @@ const startconf=()=>{
 startconf()
 
 const link = () => {
+   
 
     let value = input.value
     fetch('https://pokeapi.co/api/v2/pokemon/' + value + '/')
@@ -48,8 +50,10 @@ const link = () => {
             let pokemons=JSON.parse(localStorage.getItem('pokemon'))
             pokemons.push(pokemon)
             localStorage.setItem('pokemon',JSON.stringify(pokemons))
-            addhtml(pokemons)
-    
+            
+             addhtml(pokemons)
+         
+              
             input.value = ""
         })
 
@@ -74,6 +78,7 @@ const randoms = () => {
                 abilities: data.abilities.map(ability => ability.ability.name).join(' , ')
 
             }
+            
             let pokemons=JSON.parse(localStorage.getItem('pokemon'))
             pokemons.push(pokemon)
             localStorage.setItem('pokemon',JSON.stringify(pokemons))
@@ -88,7 +93,7 @@ function addhtml(data) {
 
 
 
-    let div = document.createElement('div')
+   let div = document.createElement('div')
     section.appendChild(div)
     div.id=data.id
     div.classList.add('div')
@@ -126,7 +131,7 @@ div2.classList.add('buttons')
         randoms()
         setTimeout(()=>{
             location.reload()
-          },1500)
+          },1000)
       
        
         
@@ -160,14 +165,67 @@ document.addEventListener('keyup', (e) => {
         if (vl >= 898 || vl<1) {
             alert('limit')
             input.value=''
-        } else if (input.value === "") {
-            alert('write a number')
-        } else {
+        } 
+   
+        else {
+            section.firstChild.remove()
+            let pokemons=JSON.parse(localStorage.getItem('pokemon'))
+            pokemons= pokemons.filter(td=>td.id!=section.firstChild.id)
+            
+            localStorage.setItem('pokemon',JSON.stringify(pokemons))
+           
             link()
 setTimeout(()=>{
   location.reload()
-},1500)
+},1000)
         }
        
     }
+})
+function lowercasename(name){
+  return name.toLowerCase()
+}
+
+const text = () => {
+   
+
+    let value = inputtext.value
+    let nametolowercase= lowercasename(value)
+
+    fetch('https://pokeapi.co/api/v2/pokemon/' + nametolowercase + '/')
+        .then(resp => resp.json())
+        .then(data => {
+
+
+            let pokemon = {
+                name: data.name,
+                id: data.id,
+                image: data.sprites["front_default"],
+                type: data.types.map(type => type.type.name).join(' , '),
+                abilities: data.abilities.map(ability => ability.ability.name).join(' , ')
+
+            }
+            let pokemons=JSON.parse(localStorage.getItem('pokemon'))
+            pokemons.push(pokemon)
+            localStorage.setItem('pokemon',JSON.stringify(pokemons))
+            
+             addhtml(pokemons)
+         
+              
+            input.value = ""
+        })
+
+}
+
+search.addEventListener('click',()=>{
+    section.firstChild.remove()
+    let pokemons=JSON.parse(localStorage.getItem('pokemon'))
+    pokemons= pokemons.filter(td=>td.id!=section.firstChild.id)
+    
+    localStorage.setItem('pokemon',JSON.stringify(pokemons))
+   
+    text()
+setTimeout(()=>{
+location.reload()
+},1000)
 })

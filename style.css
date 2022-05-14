@@ -10,7 +10,7 @@ body{
 section{
     display: flex;
 margin-top: 20px;
-   flex-wrap: wrap;
+  justify-content: center;
     gap: 10px;
     width: 90%;
     margin-left: 10%;
@@ -18,11 +18,14 @@ margin-top: 20px;
 
 .div{
     background-color: greenyellow;
-    width: 20%;
+    width: 30%;
     border: 2px solid darkblue;
-    height: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
+    transform: translateX(-20%);
+    border-radius: 10px;
+
 
     
 }
@@ -79,7 +82,7 @@ h1{
     font-weight: bolder;
     text-transform: uppercase;
 }
-label{
+.label1{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -95,7 +98,7 @@ label{
 
     
 }
-input{
+.input{
     
     width: 100%;
     align-self: center;
@@ -108,7 +111,7 @@ input{
     padding: 5px;
     text-align: center;
 }
-input[type=number]::-webkit-inner-spin-button {
+.input[type=number]::-webkit-inner-spin-button {
    -webkit-appearance: none;
   
   }
@@ -120,6 +123,46 @@ input[type=number]::-webkit-inner-spin-button {
       font-size: 30px;
       font-weight: bold;
       
+  }
+
+  .search{
+      background-color: transparent;
+      border: none;
+      outline: none;
+      padding: 10px;
+      font-weight: bold;
+      color: rgb(254, 250, 253);
+  }
+  .search:hover{
+      transform: scale(1.2);
+      cursor: pointer;
+  }
+  .search:active{
+      transform: scale(0.8);
+      
+  }
+
+  .label2{
+      display: flex;
+      justify-content: center;
+      margin: 20px 0 10px 50%;
+      transform: translateX(-50%);
+      border: 2px solid gray;
+      width: 20%;
+      
+      
+
+  }
+
+  .input-text{
+      padding: 10px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      font-weight: bold;
+      
+      color: wheat;
+      text-transform: capitalize;
   }
 
 
