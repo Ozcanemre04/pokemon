@@ -1,4 +1,6 @@
-import randoms from './index'
+import link from './index';
+
+let randomly = Math.floor(Math.random() * 800);
 
 export default function randomPokemon() {
   let section =document.querySelector('section')
@@ -8,7 +10,7 @@ export default function randomPokemon() {
     console.log(section.firstChild);
   
     localStorage.setItem("pokemon", JSON.stringify(pokemons));
-    randoms();
+    link(randomly);
     setTimeout(() => {
       location.reload();
     }, 1000);

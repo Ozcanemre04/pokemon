@@ -1,3 +1,4 @@
+//var
 let section = document.querySelector("section");
 let input = document.querySelector("input");
 
@@ -6,7 +7,7 @@ let search = document.querySelector(".search");
 let minus = document.querySelector(".minus");
 let plus = document.querySelector(".plus");
 
-
+//import
 import startLocalStorage from './startLocalStorage'
 import deletePokemon from './deletePokemon'
 import FindpokemonData from './FindPokemonData'
@@ -21,37 +22,40 @@ minus.addEventListener("click", () => {
   input.value--;
 });
 
-let randomly = Math.floor(Math.random() * 800);
-let nametolowercase = lowercasename(inputtext.value);
+
 
 startLocalStorage();
 
-function link(valeur)  {
+export default function link(valeur)  {
   
-  fetch("https://pokeapi.co/api/v2/pokemon/" + valeur.value + "/")
+  fetch("https://pokeapi.co/api/v2/pokemon/" + valeur + "/")
     .then((resp) => resp.json())
     .then((data) => {
       
       FindpokemonData(data)
 
-     valeur.value=""
+     input.value=""
     
-})}
-
-
-
-
+    })}
+    
+    
+    
+    const text = () => {
+      
+      let nametolowercase = lowercasename(inputtext.value);
   
-  
-  
-  export default function randoms(){
-  
-    fetch("https://pokeapi.co/api/v2/pokemon/" + randomly + "/")
-      .then((resp) => resp.json())
-      .then((data) => {
-        FindpokemonData(data);
-      });
+  fetch("https://pokeapi.co/api/v2/pokemon/" + nametolowercase + "/")
+  .then((resp) => resp.json())
+  .then((data) => {
+    FindpokemonData(data)
+
+      inputtext.value = "";
+    })
   };
+  
+  
+  
+ 
 
 
 
@@ -90,29 +94,13 @@ document.addEventListener("keyup", (e) => {
         localStorage.setItem("pokemon", JSON.stringify(pokemons));
       }
 
-      link(input);
+      link(input.value);
       setTimeout(() => {
         location.reload();
       }, 1000);
     
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 search.addEventListener("click", () => {
@@ -122,7 +110,7 @@ search.addEventListener("click", () => {
 
   localStorage.setItem("pokemon", JSON.stringify(pokemons));
 
-  link(inputtext);
+  text();
   setTimeout(() => {
     location.reload();
   }, 1000);
