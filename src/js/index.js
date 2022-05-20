@@ -14,7 +14,7 @@ import FindpokemonData from './FindPokemonData'
 import lowercasename from './lowercasename'
 import randomPokemon from './randomPokemon'
 
-
+//plus and minus eventlistener
 plus.addEventListener("click", () => {
   input.value++;
 });
@@ -55,12 +55,6 @@ export default function link(valeur)  {
   
   
   
- 
-
-
-
-
-
 //random
 let random = document.querySelector(".random");
 if (random) {
@@ -77,7 +71,7 @@ if (deleteClass) {
 
 
 
-
+//input eventListener
 
 document.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
